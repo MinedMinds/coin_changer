@@ -1,12 +1,12 @@
 def generate_change(cents)
-	if cents == 0
-		{}
-	elsif cents > 5
-		remaining = cents - 5
-		{:nickel => 1, :penny => remaining}
+	change = {}
+	if cents > 5
+		change[:nickel] = 1
+		change[:penny] = cents - 5
 	elsif cents == 5
-		{:nickel => 1}
-	else
-		{:penny => cents}
+		change[:nickel] = 1
+	elsif cents > 0
+		change[:penny] = cents
 	end
+	change
 end
